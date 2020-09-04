@@ -8,14 +8,13 @@ import ChatIcon from "@material-ui/icons/Chat";
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 import { ExpandMoreOutlined } from "@material-ui/icons";
+import { useStateValue } from "./StateProvider";
 
 function Sidebar() {
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div className="sidebar">
-      <SidebarRow
-        src="https://media-exp1.licdn.com/dms/image/C4E03AQG5EH3lzzR0WA/profile-displayphoto-shrink_200_200/0?e=1604534400&v=beta&t=bCZlfdhRoy5X5qW2mAw3ygvl3M68rcPpSccuQ34j_m0"
-        title="Farzad Taghavi"
-      />
+      <SidebarRow src={user.photoURL} title={user.displayName} />
 
       <SidebarRow
         Icon={LocalHospitalIcon}
